@@ -1,0 +1,45 @@
+@use './safe-area.css';
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 37.5px;
+  color: #202226;
+  background: #f5f7fa;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-size: 14px;
+}
+button,
+input {
+  font: inherit;
+}
+.van-config-provider {
+  min-height: 100dvh;
+  background: var(--van-background);
+  color: var(--van-text-color);
+}
+.app-shell {
+  max-width: 768px;
+  min-height: 100dvh;
+  margin: 0 auto;
+}
+.page-content {
+  padding: 20px 16px;
+}
+.page-content h1 {
+  font-size: 26px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.page-content p {
+  line-height: 1.7;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-block: 20px;
+}

@@ -1,0 +1,20 @@
+/* 宿主可设置 data-app-safe-area-mode=all/top-only/bottom-only/none，避免重复预留安全区。 */
+:root {
+  --app-safe-area-top-raw: env(safe-area-inset-top, 0px);
+  --app-safe-area-bottom-raw: env(safe-area-inset-bottom, 0px);
+  --app-safe-area-top: var(--app-safe-area-top-raw);
+  --app-safe-area-bottom: var(--app-safe-area-bottom-raw);
+}
+:root[data-app-safe-area-mode='top-only'] {
+  --app-safe-area-bottom: 0px;
+}
+:root[data-app-safe-area-mode='bottom-only'] {
+  --app-safe-area-top: 0px;
+}
+:root[data-app-safe-area-mode='none'] {
+  --app-safe-area-top: 0px;
+  --app-safe-area-bottom: 0px;
+}
+.van-safe-area-bottom {
+  padding-bottom: var(--app-safe-area-bottom) !important;
+}
