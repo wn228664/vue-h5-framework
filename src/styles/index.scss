@@ -1,4 +1,5 @@
 @use './safe-area.css';
+/* 根字号与 postcss-pxtorem 的 37.5 基准对应；正文另设 14px，避免继承大字号。 */
 :root {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 37.5px;
@@ -21,6 +22,7 @@ input {
   background: var(--van-background);
   color: var(--van-text-color);
 }
+/* 平板和桌面预览限制内容宽度；窄屏由实际视口决定，不固定页面宽度。 */
 .app-shell {
   max-width: 768px;
   min-height: 100dvh;

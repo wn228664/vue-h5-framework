@@ -1,16 +1,22 @@
 /* 宿主可设置 data-app-safe-area-mode=all/top-only/bottom-only/none，避免重复预留安全区。 */
 :root {
+  /* --app-safe-area-top-raw：设备原始顶部刘海/状态栏安全距离，不受宿主覆盖策略影响。 */
   --app-safe-area-top-raw: env(safe-area-inset-top, 0px);
+  /* --app-safe-area-bottom-raw：设备原始底部手势条安全距离，未知环境回退为零。 */
   --app-safe-area-bottom-raw: env(safe-area-inset-bottom, 0px);
+  /* --app-safe-area-top：页面实际消费的顶部留白；宿主已预留时可由下方模式置零。 */
   --app-safe-area-top: var(--app-safe-area-top-raw);
+  /* --app-safe-area-bottom：页面实际消费的底部留白；Vant 与普通容器共用此值。 */
   --app-safe-area-bottom: var(--app-safe-area-bottom-raw);
 }
+/* 仅页面处理顶部安全区；底部已由宿主负责。 */
 :root[data-app-safe-area-mode='top-only'] {
   --app-safe-area-bottom: 0px;
 }
 :root[data-app-safe-area-mode='bottom-only'] {
   --app-safe-area-top: 0px;
 }
+/* 两侧均由宿主负责时关闭网页留白，避免 WebView 重复缩小内容区域。 */
 :root[data-app-safe-area-mode='none'] {
   --app-safe-area-top: 0px;
   --app-safe-area-bottom: 0px;

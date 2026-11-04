@@ -19,17 +19,24 @@
 </template>
 
 <script setup>
+/** 展示加载遮罩，不启动请求、不决定业务超时。父组件可用 v-if 销毁，也可通过 ref.show()/hide() 控制；status/aria-live 向读屏提供加载反馈。 */
+
 import { ref } from 'vue'
 
 /** 过渡层是否显示。默认打开，交给父组件在准备完成后关闭。 */
+// visible：实例内显示开关，初值 true；show/hide 直接控制，不携带网络状态。
 const visible = ref(true)
 
-/** 显示加载过渡层。 */
+/**
+ * 显示本实例的加载遮罩；重复调用无额外副作用。
+ */
 function show() {
   visible.value = true
 }
 
-/** 隐藏加载过渡层。 */
+/**
+ * 隐藏遮罩；请求取消和错误恢复仍由父级负责。
+ */
 function hide() {
   visible.value = false
 }

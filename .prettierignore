@@ -1,0 +1,7 @@
+# 排版只检查手写源文件、测试和配置；严格锁文件、生成物和资源不由格式工具改写。
+node_modules/
+dist/
+coverage/
+package-lock.json
+*.md
+public/
